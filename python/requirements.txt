@@ -1,0 +1,20 @@
+# S2 脚本所需依赖
+# 安装：pip install -r requirements.txt
+
+# —— S2 必需 ——
+pandas>=2.2
+numpy>=1.26
+scipy>=1.11          # 正态分布（Mann-Kendall 的 p 值）、后续假设检验
+SQLAlchemy>=2.0      # 与 MySQL 的通道
+PyMySQL>=1.1         # MySQL 驱动
+
+# —— 后续专题要用（S1 阶段可以先不装）——
+statsmodels>=0.14    # S3 分位数回归 / S4 逻辑回归 / S6 DID（自带 p 值与标准误）
+scikit-learn>=1.4    # S4 随机森林 / S5 K-means（聚类前记得做 log 变换）
+matplotlib>=3.8      # 仅探索性画图，不进最终交付（最终图全在 Tableau）
+
+# —— 说明 ——
+# 刻意没有引入：
+#    ruptures  —— 断点检测用二分分割 + BIC 惩罚自己实现，月度小样本足够且可解释
+#    pymannkendall —— Mann-Kendall 自己实现（含并列值修正），少一个依赖
+#    shap / lifelines —— S4 / S5 才会用到，到那时再装

@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# 虚拟环境
+.venv/
+venv/
+env/
+ENV/
+
+# IDE 配置
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# 环境变量与本地配置
+.env
+.env.local
+*.env
+
+# 日志与临时
+*.log
+*.tmp
+tmp/
+bak/
+*.bak
+*.swp
+
+# 数据（项目用的是 Kaggle 公开数据，不入仓；邓若把 CSV 拷进来也会被排除）
+data/
+*.csv
+*.parquet
+*.feather
+*.h5
+*.hdf5
+
+# 输出与缓存（如果未来加）
+output/
+cache/
+.pytest_cache/
+
+# 助手工作区元数据（不是项目本身）
+.workbuddy/
+
+# OS
+desktop.ini
