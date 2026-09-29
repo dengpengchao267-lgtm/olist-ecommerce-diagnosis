@@ -1,6 +1,6 @@
 # 《Olist 电商平台经营诊断与增长策略分析》总报告
 
-> **项目作者**：邓鹏超（江西财经大学 · 应用统计 · 硕士在读）
+> **项目作者**：dpc
 > **数据源**：Kaggle *Brazilian E-Commerce Public Dataset by Olist*（2016-09 ~ 2018-09，9 个 CSV）
 > **技术栈**：MySQL 8.0 · Python 3.13 · Tableau（按"口径锁在 SQL 层、计算在 Python 层、呈现只在 Tableau 层"分工）
 > **项目结构**：6 大专题 S1~S6，每专题"执行方案 + 结果分析报告"两段式产出
