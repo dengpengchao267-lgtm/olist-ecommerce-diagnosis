@@ -11,7 +11,7 @@ GMV 拆解与增长归因（专题 S2）的统计计算层。
 
 ```
 python/
-├─ config.py                     连接串 DB_URL + 分析参数（改这里，不用翻脚本）
+├─ config.py                     连接串 DB_URL + 分析参数
 ├─ common.py                     公共模块：读写封装、面板数据、LMDI、Bootstrap、MK、断点检测
 ├─ s2_01_gmv_decomposition.py    三因子 LMDI 分解 + Bootstrap  → ads_gmv_decomposition
 ├─ s2_02_trend_breakpoint.py     趋势检验 + 断点检测           → ads_gmv_trend
@@ -23,9 +23,9 @@ python/
 ├─ s5_01_rfm_cluster.py          S5：R/F/M 分层 vs K-means 交叉验证（轮廓系数选 K、ARI）
 ├─ s5_02_repeat_survival.py      S5：复购率（Wilson CI+FDR）+ KM 生存分析 + PSM 效应 → 三张 ads_s5_*
 ├─ s6_01_strategy_eval.py        S6：三条策略的反事实 ROI + (p×v) 二维敏感性 + 预算分配 → 三张 ads_s6_*
-├─ sql_lint.py                   SQL 结构校验：抓「列错位 / UNION 分支列数不一致」（语法解析抓不到）
+├─ sql_lint.py                   SQL 结构校验：抓「列错位 / UNION 分支列数不一致」
 ├─ examples_sql_io.py            读写速查：四种读写方式各跑一遍
-├─ selftest.py                   方法自检（不连数据库，当前 60 项）
+├─ selftest.py                   方法自检
 └─ requirements.txt
 ```
 
@@ -54,20 +54,8 @@ write_df(engine, df2, "my_table", if_exists="append")
 write_table(engine, df2, "ads_gmv_decomposition")
 ```
 
-**为什么结果表要用 `write_table` 而不是直接 `append`**：
 
-| 情形 | 直接 `if_exists='append'` 的后果 |
-|---|---|
-| 表上有主键（如 `(stat_month, factor)`） | 第二次跑报 `Duplicate entry` |
-| 表上没主键 | **不报错，但行数悄悄翻倍** —— 更危险 |
 
-`write_table` 多做的唯一一件事就是先 `DELETE`，然后照样 append。代价是一次删除，换来的是可重复执行。
-
-**两个必须记住的坑**：
-
-1. `index=False` 不能省。不写就会多出一列 `index`（0,1,2…），下次读回来还得手动删。
-2. `charset=utf8mb4` 不能省。少了它，巴西地名的重音字符（`São Paulo` / `Amapá`）会乱码或直接写不进去。
-3. 写入前 `common._clean_nan()` 会把 `NaN` 转成 `None`。不转的话 DECIMAL 列会收到字符串 `'nan'`——轻则报错，重则**静默写进一堆 0**（而 `NULL` 和 `0` 是两件事）。
 
 ## 三、环境准备
 
