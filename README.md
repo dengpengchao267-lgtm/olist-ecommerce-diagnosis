@@ -29,29 +29,29 @@
 
 ```
 olist_ecommerce_analysis/
-├── README.md                          ← 你正在看的
-├── LICENSE                            ← MIT
-├── 项目框架.md                        ← 项目设计与原则
-├── docs/                              ← 报告层
+├── README.md                        
+├── LICENSE                            
+├── 项目框架.md                      
+├── docs/                             
 │   ├── 口径与指标字典.md
 │   ├── 技术栈分工说明.md
 │   ├── common_函数手册.md
-│   ├── S1~S6_执行方案.md              ← 6 份执行方案
-│   ├── S1~S6_结果分析报告.md          ← 6 份专题结果
-│   └── 总报告_Olist电商经营诊断与增长策略分析.md  ← 整合总报告 ⭐
-├── sql/                               ← 数据层（MySQL 8.0）
-│   ├── README.md                      ← 运行顺序与依赖关系
-│   ├── 00~04*.sql                     ← ods → dwd → dws → ads 建仓
-│   ├── 04b_隐式转换验收.sql           ← 静默错误捕捉
-│   └── 05~11_*.sql                    ← S2~S6 专题 SQL
-└── python/                            ← 计算层
-    ├── README.md                      ← 运行顺序与依赖关系
+│   ├── S1~S6_执行方案.md              
+│   ├── S1~S6_结果分析报告.md          
+│   └── 总报告_Olist电商经营诊断与增长策略分析.md 
+├── sql/                             
+│   ├── README.md                     
+│   ├── 00~04*.sql                     
+│   ├── 04b_隐式转换验收.sql          
+│   └── 05~11_*.sql                   
+└── python/                            
+    ├── README.md                    
     ├── requirements.txt
-    ├── config.py                      ← 数据库配置与参数（统一源）
-    ├── common.py                      ← 通用方法（读写、统计、CI、FDR）
-    ├── sql_lint.py                    ← SQL 三层验证工具
-    ├── selftest.py                    ← 60 项自检（不连库）
-    └── s2~s6_0*.py                    ← 各专题主程序
+    ├── config.py                      
+    ├── common.py                     
+    ├── sql_lint.py                    
+    ├── selftest.py                    
+    └── s2~s6_0*.py                    
 
 ---
 
