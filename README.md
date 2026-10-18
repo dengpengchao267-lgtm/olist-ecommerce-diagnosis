@@ -82,7 +82,7 @@ olist_ecommerce_analysis/
 4. sql/02_dws_主题汇总.sql            # 主题汇总
 5. sql/03_ads_看板结果表.sql          # Tableau 直连的 ads 表
 6. sql/04_校验与对账.sql
-7. sql/04b_隐式转换验收.sql           # 必跑：抓隐式日期转换
+7. sql/04b_隐式转换验收.sql           
 ```
 
 ### 3. 跑各专题（按 SQL → Python 顺序）
