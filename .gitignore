@@ -32,7 +32,7 @@ bak/
 *.bak
 *.swp
 
-# 数据（项目用的是 Kaggle 公开数据，不入仓；邓若把 CSV 拷进来也会被排除）
+# 数据
 data/
 *.csv
 *.parquet
@@ -40,13 +40,11 @@ data/
 *.h5
 *.hdf5
 
-# 输出与缓存（如果未来加）
+# 输出与缓存
 output/
 cache/
 .pytest_cache/
 
-# 助手工作区元数据（不是项目本身）
-.workbuddy/
 
 # OS
 desktop.ini
